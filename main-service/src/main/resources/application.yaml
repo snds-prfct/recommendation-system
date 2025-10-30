@@ -1,0 +1,5 @@
+
+
+user-activity:
+  kafka:
+    topic: "user-activity"
