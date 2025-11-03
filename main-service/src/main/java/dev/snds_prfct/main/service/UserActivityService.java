@@ -1,7 +1,7 @@
 package dev.snds_prfct.main.service;
 
 import dev.snds_prfct.main.constant.UserActivityType;
-import dev.snds_prfct.main.queue.UserActivityKafkaProducer;
+import dev.snds_prfct.main.kafka.UserActivityKafkaProducer;
 import dev.snds_prfct.main.util.NumberGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
