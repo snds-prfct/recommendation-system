@@ -1,4 +1,4 @@
-package dev.snds_prfct.main.util;
+package dev.snds_prfct.recommendations.util;
 
 import java.util.Random;
 

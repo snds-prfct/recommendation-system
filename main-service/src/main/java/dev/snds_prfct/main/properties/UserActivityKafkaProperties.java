@@ -4,7 +4,8 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @Data
-@ConfigurationProperties(prefix = "user-activity.kafka.producer")
+@ConfigurationProperties(prefix = "kafka.topics.users-activity")
 public class UserActivityKafkaProperties {
     private String topic;
+    private int partitions;
 }

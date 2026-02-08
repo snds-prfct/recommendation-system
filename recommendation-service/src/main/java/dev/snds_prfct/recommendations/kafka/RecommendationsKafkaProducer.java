@@ -1,25 +1,25 @@
-package dev.snds_prfct.main.kafka;
+package dev.snds_prfct.recommendations.kafka;
 
-import dev.snds_prfct.main.model.UserActivityMessage;
+import dev.snds_prfct.recommendations.model.RecommendationMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
-@Slf4j
 @Component
 @RequiredArgsConstructor
-public class UserActivityKafkaProducer {
+@Slf4j
+public class RecommendationsKafkaProducer {
 
-    @Value("${kafka.topics.users-activity.topic}")
+    @Value("${kafka.topics.recommendations.topic}")
     private String topic;
 
-    private final KafkaTemplate<String, UserActivityMessage> kafkaTemplate;
+    private final KafkaTemplate<Long, RecommendationMessage> recommendationKafkaTemplate;
 
-    public void send(UserActivityMessage message) {
-        log.debug("Sending message to '%s' Kafka topic with '%s' key".formatted(topic, message.type().getName()));
-        kafkaTemplate.send(topic, message.type().getName(), message)
+    public void send(RecommendationMessage message) {
+        log.debug("Sending message to '{}' kafka topic", topic);
+        recommendationKafkaTemplate.send(topic, message)
                 .whenComplete((r, e) -> {
                     if (e != null) {
                         log.error("Message has not been sent to '%s' Kafka topic".formatted(topic), e);
