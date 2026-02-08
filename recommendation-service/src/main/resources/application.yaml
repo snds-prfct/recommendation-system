@@ -5,7 +5,8 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
-recommendations:
-  kafka:
-    producer:
-      topic: recommendations
+kafka:
+  topics:
+    recommendations:
+      topic: recommendation-system.recommendations
+      partitions: 1

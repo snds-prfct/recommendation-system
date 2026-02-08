@@ -5,7 +5,8 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
-user-activity:
-  kafka:
-    producer:
-      topic: "user-activity"
+kafka:
+  topics:
+    users-activity:
+      topic: recommendation-system.users-activity
+      partitions: 3

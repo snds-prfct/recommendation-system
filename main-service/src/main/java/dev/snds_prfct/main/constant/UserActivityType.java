@@ -1,5 +1,8 @@
 package dev.snds_prfct.main.constant;
 
+import lombok.Getter;
+
+@Getter
 public enum UserActivityType {
     VIEW("view"), LIKE("like"), REPOST("repost");
 
@@ -9,7 +12,4 @@ public enum UserActivityType {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
 }

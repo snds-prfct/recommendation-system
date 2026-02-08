@@ -1,32 +1,51 @@
 # Recommendation System
 
-The system consisting of several microservices (emulating the business logic of a recommendation system based on user actions) interacting through a Kafka broker
+The system consisting of several microservices and a Kafka broker, emulating the operation of a recommendation system (creating/processing recommendations based on users activity).
 
-## Main Service
+## System Components
 
-The Main Service has few endpoints in order to emulate users activity
+### Kafka Broker
+###### Technology
+A Docker container based on `apache/kafka:4.1.0`
+
+###### Description
+Has few topics:
+- `recommendation-system.users-activity` with 3 partitions for users activity types: views, likes, reposts;
+- `recommendation-system.recommendations` with 1 partition for recommendations.
+
+### Main Service
+###### Technology
+A Java 21/Spring Boot microservice.<br>
+
+###### Description
+Has few REST endpoints in order to emulate users activity:
+
 > GET /posts/view
 
 > POST /posts/like
 
 > POST /posts/repost
 
-When these endpoints are executed then it sends messages into `users-activity` Kafka topic with specific key (`view`, `like`, `repost`) 
+When these endpoints are executed it sends messages into `recommendation-system.users-activity` Kafka topic with specific key (`view`, `like`, `repost`) 
 in order to separate them by partition.
 
-## Recommendation Service
-
-The Recommendation Service is a microservice that emulates the generation of recommendations for system users 
-and sends messages with information about recommendations to a `recommendations` Kafka topic every few seconds.
-
+### Recommendation Service
+###### Technology
+A Java 21/Spring Boot microservice
+###### Description
+Emulates the generation of recommendations for system users. 
+Sends messages with some information about recommendations to a `recommendation-system.recommendations` Kafka topic every few seconds.
 
 ## Running the System using the Docker Compose tool
 
 In order to run the system it is necessary to build microservices first:
-> mvn package
+> mvn clean package
 
 Then the Docker images can be built:
 > docker compose build [--no-cache]
 
 And the full System can be launched:
 > docker compose up -d
+
+To shut down the system, run:
+> docker compose down

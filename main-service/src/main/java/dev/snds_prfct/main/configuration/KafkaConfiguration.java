@@ -19,7 +19,7 @@ public class KafkaConfiguration {
     public NewTopic userActivityKafkaTopic() {
         return TopicBuilder
                 .name(userActivityKafkaProperties.getTopic())
-                .partitions(3)
+                .partitions(userActivityKafkaProperties.getPartitions())
                 .build();
     }
 }
