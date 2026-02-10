@@ -49,3 +49,7 @@ And the full System can be launched:
 
 To shut down the system, run:
 > docker compose down
+
+## Prometheus
+Prometheus becomes available after starting services using Docker Compose:
+> localhost:9090

@@ -10,3 +10,9 @@ kafka:
     recommendations:
       topic: recommendation-system.recommendations
       partitions: 1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus,metrics
