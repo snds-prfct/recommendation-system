@@ -10,3 +10,9 @@ kafka:
     users-activity:
       topic: recommendation-system.users-activity
       partitions: 3
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus,metrics
