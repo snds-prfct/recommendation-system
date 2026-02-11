@@ -65,6 +65,16 @@ services:
       - recommendation-service
       - main-service
 
+  grafana:
+    image: grafana/grafana:12.3.2
+    container_name: grafana
+    volumes:
+      - ./grafana/provisioning/datasources/:/etc/grafana/provisioning/datasource.yaml
+    ports:
+      - "3000:3000"
+    networks:
+      - recommendation_system
+
 networks:
   recommendation_system:
     driver: bridge
