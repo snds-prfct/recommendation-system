@@ -1,6 +1,6 @@
-package dev.snds_prfct.recommendations.kafka;
+package dev.snds_prfct.recommendations.kafka.producer;
 
-import dev.snds_prfct.recommendations.model.RecommendationMessage;
+import dev.snds_prfct.rs.common.recommendation.message.RecommendationMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class RecommendationsKafkaProducer {
 
-    @Value("${kafka.topics.recommendations.topic}")
+    @Value("${kafka.producer.topics.recommendations.topic}")
     private String topic;
 
     private final KafkaTemplate<Long, RecommendationMessage> recommendationKafkaTemplate;

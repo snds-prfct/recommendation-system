@@ -1,4 +1,4 @@
-package dev.snds_prfct.main.constant;
+package dev.snds_prfct.rs.common.recommendation.message;
 
 import lombok.Getter;
 

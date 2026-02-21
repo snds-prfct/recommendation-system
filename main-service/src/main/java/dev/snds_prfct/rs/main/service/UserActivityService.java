@@ -1,8 +1,8 @@
 package dev.snds_prfct.main.service;
 
-import dev.snds_prfct.main.constant.UserActivityType;
+import dev.snds_prfct.rs.common.recommendation.message.UserActivityMessage;
+import dev.snds_prfct.rs.common.recommendation.message.UserActivityType;
 import dev.snds_prfct.main.kafka.UserActivityKafkaProducer;
-import dev.snds_prfct.main.model.UserActivityMessage;
 import dev.snds_prfct.main.util.NumberGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

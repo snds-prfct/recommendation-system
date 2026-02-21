@@ -1,4 +1,4 @@
-package dev.snds_prfct.recommendations.model;
+package dev.snds_prfct.rs.common.recommendation.message;
 
 import java.time.Instant;
 

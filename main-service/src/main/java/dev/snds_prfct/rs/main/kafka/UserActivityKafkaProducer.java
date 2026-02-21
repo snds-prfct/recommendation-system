@@ -1,6 +1,6 @@
 package dev.snds_prfct.main.kafka;
 
-import dev.snds_prfct.main.model.UserActivityMessage;
+import dev.snds_prfct.rs.common.recommendation.message.UserActivityMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

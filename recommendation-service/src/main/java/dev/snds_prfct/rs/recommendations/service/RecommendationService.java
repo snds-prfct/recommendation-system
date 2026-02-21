@@ -1,7 +1,7 @@
 package dev.snds_prfct.recommendations.service;
 
-import dev.snds_prfct.recommendations.kafka.RecommendationsKafkaProducer;
-import dev.snds_prfct.recommendations.model.RecommendationMessage;
+import dev.snds_prfct.recommendations.kafka.producer.RecommendationsKafkaProducer;
+import dev.snds_prfct.rs.common.recommendation.message.RecommendationMessage;
 import dev.snds_prfct.recommendations.util.NumberGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;

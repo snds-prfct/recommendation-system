@@ -1,6 +1,4 @@
-package dev.snds_prfct.main.model;
-
-import dev.snds_prfct.main.constant.UserActivityType;
+package dev.snds_prfct.rs.common.recommendation.message;
 
 import java.time.Instant;
 
