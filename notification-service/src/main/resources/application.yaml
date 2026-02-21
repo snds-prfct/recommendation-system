@@ -1,0 +1,16 @@
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    consumer:
+      group-id: notifications
+      enable-auto-commit: true
+      key-deserializer: org.apache.kafka.common.serialization.LongDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: dev.snds_prfct.rs.common.recommendation.*
+
+
+kafka:
+  consumers:
+    recommendations:
+      topic: recommendation-system.recommendations
