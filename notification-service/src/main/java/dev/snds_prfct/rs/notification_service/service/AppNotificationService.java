@@ -9,6 +9,6 @@ import org.springframework.stereotype.Service;
 public class AppNotificationService implements NotificationService {
     @Override
     public void send(Notification notification) {
-        log.debug("Sending notifications");
+        log.debug("Sending notification to app");
     }
 }

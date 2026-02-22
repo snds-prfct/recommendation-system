@@ -4,12 +4,24 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: recommendations
+      enable-auto-commit: true
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: dev.snds_prfct.rs.common.kafka.*
 
 kafka:
-  topics:
-    recommendations:
-      topic: recommendation-system.recommendations
-      partitions: 1
+  consumer:
+    topics:
+      users-activity:
+        topic: recommendation-system.users-activity
+  producer:
+    topics:
+      recommendations:
+        topic: recommendation-system.recommendations
+        partitions: 3
 
 management:
   endpoints:

@@ -1,6 +1,6 @@
 package dev.snds_prfct.rs.notification_service.processor;
 
-import dev.snds_prfct.rs.common.recommendation.message.RecommendationMessage;
+import dev.snds_prfct.rs.common.kafka.recommendation.RecommendationMessage;
 import dev.snds_prfct.rs.notification_service.notification.Notification;
 import dev.snds_prfct.rs.notification_service.service.NotificationService;
 import lombok.RequiredArgsConstructor;

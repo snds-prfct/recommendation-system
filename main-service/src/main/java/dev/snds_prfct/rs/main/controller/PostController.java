@@ -1,7 +1,6 @@
-package dev.snds_prfct.main.controller;
+package dev.snds_prfct.rs.main.controller;
 
-
-import dev.snds_prfct.main.service.UserActivityService;
+import dev.snds_prfct.rs.main.service.UserActivityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
