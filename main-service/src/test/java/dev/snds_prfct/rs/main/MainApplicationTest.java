@@ -1,4 +1,4 @@
-package dev.snds_prfct.main;
+package dev.snds_prfct.rs.main;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package dev.snds_prfct.main;
+package dev.snds_prfct.rs.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

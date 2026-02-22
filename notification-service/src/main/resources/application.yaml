@@ -4,13 +4,20 @@ spring:
     consumer:
       group-id: notifications
       enable-auto-commit: true
-      key-deserializer: org.apache.kafka.common.serialization.LongDeserializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
-        spring.json.trusted.packages: dev.snds_prfct.rs.common.recommendation.*
+        spring.json.trusted.packages: dev.snds_prfct.rs.common.kafka.*
 
 
 kafka:
   consumers:
     recommendations:
       topic: recommendation-system.recommendations
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus,metrics

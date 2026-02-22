@@ -1,4 +1,4 @@
-package dev.snds_prfct.recommendations;
+package dev.snds_prfct.rs.recommendations;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package dev.snds_prfct.recommendations.properties;
+package dev.snds_prfct.rs.recommendations.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
