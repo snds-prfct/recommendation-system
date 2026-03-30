@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: prometheus
+  name: prometheus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      containers:
+        - image: prom/prometheus:v3.9.1
+          name: prometheus
+          resources: {}
+status: {}

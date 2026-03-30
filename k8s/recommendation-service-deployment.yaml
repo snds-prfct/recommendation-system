@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: recommendation-service
+  name: recommendation-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: recommendation-service
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: recommendation-service
+    spec:
+      containers:
+        - image: snds_prfct/recommendation-service:0.1
+          name: recommendation-service
+          env:
+          - name: KAFKA_BOOTSTRAP_SERVERS
+            value: kafka-broker:9092
+status: {}
