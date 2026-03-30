@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: main-service
+  name: main-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: main-service
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: main-service
+    spec:
+      containers:
+        - image: snds_prfct/main-service:0.1
+          name: main-service
+          env:
+          - name: KAFKA_BOOTSTRAP_SERVERS
+            value: kafka-broker:9092
+status: {}

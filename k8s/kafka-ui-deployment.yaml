@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: kafka-ui
+  name: kafka-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-ui
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: kafka-ui
+    spec:
+      containers:
+        - image: ghcr.io/kafbat/kafka-ui:v1.4.2
+          name: kafka-ui
+          env:
+          - name: KAFKA_CLUSTERS_0_NAME
+            value: local-cluster
+          - name: KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS
+            value: kafka-broker:9092
+          - name: DYNAMIC_CONFIG_ENABLED
+            value: 'true'
+status: {}
