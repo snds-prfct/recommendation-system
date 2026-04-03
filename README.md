@@ -2,28 +2,40 @@
 
 The system consisting of several microservices and a Kafka broker, emulating the operation of a recommendation system (creating/processing recommendations based on users activity).
 
+<img src="docs/images/recommendation_system_diagram.png" alt="drawing" width="50%"/>
+
 ## System Components
 
 ### Main Service
 ###### Technology
-A Java 21/Spring Boot microservice
+Java 25 / Spring Boot 4 Microservice
 ###### Description
 Has few REST endpoints in order to emulate users activity:
-> GET /posts/view
+> GET localhost:8080/posts/view
 
-> POST /posts/like
+> POST localhost:8080/posts/like
 
-> POST /posts/repost
+> POST localhost:8080/posts/repost
 
 When these endpoints are executed it sends messages into `recommendation-system.users-activity` Kafka topic with specific key (`view`, `like`, `repost`)
 in order to separate them by partition.
 
 ### Recommendation Service
 ###### Technology
-A Java 21/Spring Boot microservice
+Java 25 / Spring Boot 4 Microservice
 ###### Description
-Emulates the generation of recommendations for system users.
-Sends messages with some information about recommendations to a `recommendation-system.recommendations` Kafka topic every few seconds.
+Emulates the generation of recommendations for users:
+- Reads messages from the `recommendation-system.users-activity` Kafka topic about users activity
+- Generates recommendations with different types and
+- Sends messages with some information about recommendations to different partitions of a `recommendation-system.recommendations` Kafka topic.
+
+### Notification Service
+###### Technology
+Java 25 / Spring Boot 4 Microservice
+###### Description
+Emulates the generation and sending of notifications to users based on recommendations:
+- Reads recommendations from the `recommendation-system.recommendations` Kafka topic
+- 'Sends' notifications about recommendations to users.
 
 ### Kafka Broker
 ###### Technology
@@ -31,13 +43,14 @@ A Docker container based on `apache/kafka:4.1.0` image
 ###### Description
 Has few topics:
 - `recommendation-system.users-activity` with 3 partitions for users activity types: views, likes, reposts;
-- `recommendation-system.recommendations` with 1 partition for recommendations.
+- `recommendation-system.recommendations` with 3 partitions for different recommendations: news, new friends, interesting blog posts.
 
 ### Kafka UI
 ###### Technology
 A Docker container based on `ghcr.io/kafbat/kafka-ui:v1.4.2` image
 ###### Description
-
+UI for Apache Kafka message broker is available at:
+> localhost:8083
 
 ### Prometheus
 ###### Technology
