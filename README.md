@@ -2,7 +2,7 @@
 
 The system consisting of several microservices and a Kafka broker, emulating the operation of a recommendation system (creating/processing recommendations based on users activity).
 
-<img src="docs/images/recommendation_system_diagram.png" alt="drawing" width="60%"/>
+<img src="docs/images/recommendation_system_diagram.png" alt="drawing" width="70%"/>
 
 ## System Components
 
