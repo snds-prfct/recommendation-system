@@ -21,12 +21,12 @@ public class BlogPostRecommendationService implements RecommendationService {
     private final RecommendationKafkaProducer specificUserRecommendationKafkaProducer;
 
     @Override
-    @Scheduled(fixedDelay = 20000)
+    @Scheduled(fixedDelayString = "${scheduling.recommendations.blog-post.fixed-delay-millis}")
     public void createRecommendation() {
-        specificUserRecommendationKafkaProducer.send(getRecommendation());
+        specificUserRecommendationKafkaProducer.send(generateRecommendation());
     }
 
-    protected RecommendationMessage getRecommendation() {
+    protected RecommendationMessage generateRecommendation() {
         long userId = NumberGenerator.generateNumber();
         String email = userId + "@mail.dev";
         return RecommendationMessage.builder()

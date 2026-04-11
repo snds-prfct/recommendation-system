@@ -18,7 +18,7 @@ public class RecommendationsKafkaConsumer {
 
     private final RecommendationProcessor recommendationProcessor;
 
-    @KafkaListener(topics = "${kafka.consumers.recommendations.topic}")
+    @KafkaListener(topics = "${kafka.consumers.topics.recommendations.topic}")
     public void processRecommendationMessage(RecommendationMessage recommendationMessage,
                                              @Header(RECEIVED_TOPIC) String topic,
                                              @Header(RECEIVED_PARTITION) int partition) {

@@ -20,12 +20,12 @@ public class PremiumUsersNewsRecommendationService implements RecommendationServ
     private final RecommendationKafkaProducer recommendationKafkaProducer;
 
     @Override
-    @Scheduled(fixedDelay = 50000)
+    @Scheduled(fixedDelayString = "${scheduling.recommendations.premium-users-news.fixed-delay-millis}")
     public void createRecommendation() {
-        recommendationKafkaProducer.send(getRecommendation());
+        recommendationKafkaProducer.send(generateRecommendation());
     }
 
-    protected RecommendationMessage getRecommendation() {
+    protected RecommendationMessage generateRecommendation() {
         return RecommendationMessage.builder()
                 .recipient(Recipient.builder()
                         .target(Target.MULTIPLE_USERS)

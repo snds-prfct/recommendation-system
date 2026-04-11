@@ -1,4 +1,10 @@
+server:
+  port: 8080
+
 spring:
+  application:
+    name: recommendation-service
+
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
     producer:
@@ -16,12 +22,21 @@ kafka:
   consumer:
     topics:
       users-activity:
-        topic: recommendation-system.users-activity
+        topic: recommendation-system.user-activity
   producer:
     topics:
       recommendations:
         topic: recommendation-system.recommendations
         partitions: 3
+
+scheduling:
+  recommendations:
+    blog-post:
+      fixed-delay-millis: 20000
+    friends:
+      fixed-delay-millis: 20000
+    premium-users-news:
+      fixed-delay-millis: 50000
 
 management:
   endpoints:
