@@ -1,6 +1,6 @@
 package dev.snds_prfct.rs.main.configuration;
 
-import dev.snds_prfct.rs.main.properties.UserActivityKafkaProperties;
+import dev.snds_prfct.rs.main.kafka.properties.UserActivityKafkaProperties;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

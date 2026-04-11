@@ -19,8 +19,9 @@ public class RecommendationKafkaProducer {
 
     public void send(RecommendationMessage message) {
         String key = message.recommendation().type().getType();
-        log.debug("Sending message to '{}' Kafka topic with key '{}'", topic, key);
-        recommendationKafkaTemplate.send(topic, message.recommendation().type().getPartition(), key, message)
+        int partition = message.recommendation().type().getPartition();
+        log.debug("Sending message to '{}' partition of '{}' Kafka topic with key '{}'", partition, topic, key);
+        recommendationKafkaTemplate.send(topic, partition, key, message)
                 .whenComplete((r, e) -> {
                     if (e != null) {
                         log.error("Failure. Message has not been sent to '%s' Kafka topic with key '%s'".formatted(topic, key), e);

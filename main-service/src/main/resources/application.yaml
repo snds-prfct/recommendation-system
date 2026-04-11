@@ -1,4 +1,10 @@
+server:
+  port: 8080
+
 spring:
+  application:
+    name: main-service
+
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
     producer:
@@ -7,8 +13,8 @@ spring:
 
 kafka:
   topics:
-    users-activity:
-      topic: recommendation-system.users-activity
+    user-activity:
+      topic: recommendation-system.user-activity
       partitions: 3
 
 management:

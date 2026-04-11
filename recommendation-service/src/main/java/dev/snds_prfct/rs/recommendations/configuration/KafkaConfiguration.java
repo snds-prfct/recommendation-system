@@ -1,6 +1,6 @@
 package dev.snds_prfct.rs.recommendations.configuration;
 
-import dev.snds_prfct.rs.recommendations.properties.RecommendationsKafkaTopicProperties;
+import dev.snds_prfct.rs.recommendations.kafka.properties.RecommendationsKafkaTopicProperties;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

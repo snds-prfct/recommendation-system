@@ -1,4 +1,4 @@
-package dev.snds_prfct.rs.main.kafka;
+package dev.snds_prfct.rs.main.kafka.producer;
 
 import dev.snds_prfct.rs.common.kafka.user_activity.UserActivityMessage;
 import lombok.RequiredArgsConstructor;
@@ -12,15 +12,16 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class UserActivityKafkaProducer {
 
-    @Value("${kafka.topics.users-activity.topic}")
+    @Value("${kafka.topics.user-activity.topic}")
     private String topic;
 
     private final KafkaTemplate<String, UserActivityMessage> kafkaTemplate;
 
     public void send(UserActivityMessage message) {
         String key = message.type().getName();
-        log.debug("Sending message to '{}' Kafka topic with '{}' key", topic, key);
-        kafkaTemplate.send(topic, message.type().getPartition(), key, message)
+        int partition = message.type().getPartition();
+        log.debug("Sending message to partition '{}' of '{}' Kafka topic with '{}' key", partition, topic, key);
+        kafkaTemplate.send(topic, partition, key, message)
                 .whenComplete((r, e) -> {
                     if (e != null) {
                         log.error("Failure. Message has not been sent to '%s' Kafka topic with key '%s'".formatted(topic, key), e);

@@ -15,7 +15,7 @@ public class RecommendationProcessor {
     private final NotificationService notificationService;
 
     public void process(RecommendationMessage recommendationMessage) {
-        log.debug("Processing next recommendation message");
+        log.debug("Processing next recommendation message with type '{}'", recommendationMessage.recommendation().type());
         notificationService.send(new Notification());
         log.debug("Recommendation message has been processed");
     }

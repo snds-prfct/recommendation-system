@@ -1,4 +1,10 @@
+server:
+  port: 8080
+
 spring:
+  application:
+    name: notification-service
+
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
     consumer:
@@ -12,8 +18,9 @@ spring:
 
 kafka:
   consumers:
-    recommendations:
-      topic: recommendation-system.recommendations
+    topics:
+      recommendations:
+        topic: recommendation-system.recommendations
 
 
 management:

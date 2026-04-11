@@ -3,7 +3,7 @@ package dev.snds_prfct.rs.main.service;
 import dev.snds_prfct.rs.common.kafka.user_activity.UserActivityMessage;
 import dev.snds_prfct.rs.common.kafka.user_activity.UserActivityType;
 import dev.snds_prfct.rs.common.utils.NumberGenerator;
-import dev.snds_prfct.rs.main.kafka.UserActivityKafkaProducer;
+import dev.snds_prfct.rs.main.kafka.producer.UserActivityKafkaProducer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
