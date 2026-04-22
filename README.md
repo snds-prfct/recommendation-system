@@ -69,7 +69,26 @@ A Docker container based on `grafana/grafana:12.3.2` image
 Grafana becomes available after starting services using Docker Compose:
 > localhost:3000
 
-## Running the System using the Docker Compose tool
+## Running the System in Kubernetes cluster using Minikube
+### Prerequisites
+1. Docker should be installed
+2. Install Minikube and run with Docker driver
+3. Run `minikube addons enable ingress` command
+4. Build Project's images (see "Running the System using the Docker Compose" below)
+5. Load that images into Minikube: `minikube image load <image>`
+
+### Setting up the cluster
+1. Apply Kubernetes cluster configuration: `kubectl apply -f k8s/`
+2. (Optional) On macOS run the command `minikube tunnel` in terminal
+3. Add line `127.0.0.1 	recommendation-system.dev grafana.recommendation-system.dev kafka-ui.recommendation-system.dev` into `/etc/hosts` file.
+Note: On Linux use minikube ip address returned from `minikube ip` command instead of `127.0.0.1`
+
+After that the System components are available in a browser by:
+- https://kafka-ui.recommendation-system.dev/ (Kafka UI)
+- https://grafana.recommendation-system.dev/ (Grafana)
+- https://recommendation-system.dev/ (Main Service)
+
+## Running the System using the Docker Compose
 
 In order to run the system it is necessary to build microservices first:
 > mvn clean package
