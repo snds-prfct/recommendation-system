@@ -48,4 +48,3 @@ spec:
             value: "PLAINTEXT"
           - name: KAFKA_CONTROLLER_LISTENER_NAMES
             value: "CONTROLLER"
-status: {}

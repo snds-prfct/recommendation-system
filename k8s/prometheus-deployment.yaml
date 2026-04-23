@@ -19,4 +19,3 @@ spec:
         - image: prom/prometheus:v3.9.1
           name: prometheus
           resources: {}
-status: {}
