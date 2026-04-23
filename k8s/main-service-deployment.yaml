@@ -21,4 +21,12 @@ spec:
           env:
           - name: KAFKA_BOOTSTRAP_SERVERS
             value: kafka-broker:9092
-status: {}
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
