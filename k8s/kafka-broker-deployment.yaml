@@ -48,3 +48,10 @@ spec:
             value: "PLAINTEXT"
           - name: KAFKA_CONTROLLER_LISTENER_NAMES
             value: "CONTROLLER"
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "400M"
+            limits:
+              cpu: "500m"
+              memory: "800M"

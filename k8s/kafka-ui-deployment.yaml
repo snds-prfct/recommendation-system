@@ -25,3 +25,10 @@ spec:
             value: kafka-broker:9092
           - name: DYNAMIC_CONFIG_ENABLED
             value: 'true'
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "200M"
+            limits:
+              cpu: "500m"
+              memory: "500M"
