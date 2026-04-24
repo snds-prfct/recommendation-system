@@ -18,4 +18,10 @@ spec:
       containers:
         - image: grafana/grafana:12.3.2
           name: grafana
-          resources: {}
+          resources:
+            requests:
+              cpu: "1"
+              memory: "100M"
+            limits:
+              cpu: "2"
+              memory: "300M"
