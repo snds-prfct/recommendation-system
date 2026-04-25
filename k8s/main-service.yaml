@@ -1,26 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: main-service
+  name: main-service
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: main-service
+  type: NodePort
+status:
+  loadBalancer: {}
+
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: notification-service
-  name: notification-service
+    app: main-service
+  name: main-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: notification-service
+      app: main-service
   strategy: {}
   template:
     metadata:
       labels:
-        app: notification-service
+        app: main-service
     spec:
       containers:
-        - image: snds_prfct/notification-service:0.1
-          name: notification-service
+        - image: snds_prfct/main-service:0.1
+          name: main-service
           env:
-          - name: KAFKA_BOOTSTRAP_SERVERS
-            value: kafka-broker:9092
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              value: kafka-broker:9092
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
