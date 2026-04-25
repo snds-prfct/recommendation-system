@@ -78,7 +78,7 @@ Grafana becomes available after starting services using Docker Compose:
 5. Load that images into Minikube: `minikube image load <image>`
 
 ### Setting up the cluster
-1. Apply Kubernetes cluster configuration: `kubectl apply -f k8s/`
+1. Apply Kubernetes cluster configuration: `kubectl apply -f k8s/ -R`
 2. (Optional) On macOS run the command `minikube tunnel` in terminal
 3. Add line `127.0.0.1 	recommendation-system.dev grafana.recommendation-system.dev kafka-ui.recommendation-system.dev` into `/etc/hosts` file.
 Note: On Linux use minikube ip address returned from `minikube ip` command instead of `127.0.0.1`

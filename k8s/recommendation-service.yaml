@@ -1,3 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: recommendation-service
+  name: recommendation-service
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: recommendation-service
+  type: ClusterIP
+status:
+  loadBalancer: {}
+
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -19,8 +38,8 @@ spec:
         - image: snds_prfct/recommendation-service:0.1
           name: recommendation-service
           env:
-          - name: KAFKA_BOOTSTRAP_SERVERS
-            value: kafka-broker:9092
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              value: kafka-broker:9092
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
