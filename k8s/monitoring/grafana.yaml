@@ -12,8 +12,6 @@ spec:
   selector:
     app: grafana
   type: NodePort
-status:
-  loadBalancer: {}
 
 ---
 

@@ -12,8 +12,6 @@ spec:
   selector:
     app: main-service
   type: NodePort
-status:
-  loadBalancer: {}
 
 ---
 

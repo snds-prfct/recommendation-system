@@ -12,8 +12,6 @@ spec:
   selector:
     app: prometheus
   type: ClusterIP
-status:
-  loadBalancer: {}
 
 ---
 

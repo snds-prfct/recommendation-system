@@ -15,8 +15,6 @@ spec:
   selector:
     app: kafka-broker
   type: ClusterIP
-status:
-  loadBalancer: {}
 
 ---
 
