@@ -31,6 +31,10 @@ spec:
     metadata:
       labels:
         app: main-service
+      annotations:
+        prometheus.io/path: "/actuator/prometheus"
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
     spec:
       containers:
         - image: snds_prfct/main-service:0.1
