@@ -42,3 +42,30 @@ spec:
             limits:
               cpu: "2"
               memory: "300M"
+          volumeMounts:
+            - name: datasource-volume
+              mountPath: /etc/grafana/provisioning/datasources
+              readOnly: true
+      volumes:
+        - name: datasource-volume
+          configMap:
+            name: grafana-datasources
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-datasources
+  labels:
+    grafana_datasource: "1"
+data:
+  datasource.yaml: |
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        access: proxy
+        url: http://prometheus:9090
+        isDefault: true
+        editable: true
