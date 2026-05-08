@@ -12,10 +12,10 @@ The entire system can be run using Docker or in a Kubernetes cluster. Prometheus
 1. Java 25 and Spring Boot 4 for Microservices
 2. Docker Compose
 3. Kubernetes
-5. Apache Kafka
-6. Kafka GUI
-7. Prometheus and Grafana for metrics
-9. Elasticsearch, Fluentbit, Kibana (EFK stack) for logs
+4. Apache Kafka
+5. Kafka GUI
+6. Prometheus and Grafana for metrics
+7. Elasticsearch, Fluentbit, Kibana (EFK stack) for logs
 
 ## System Components
 
