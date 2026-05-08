@@ -6,7 +6,7 @@ This project focuses not on business logic and code, but on the system as a whol
 
 The entire system can be run using Docker or in a Kubernetes cluster. Prometheus and Grafana are used to store the metrics. Elasticsearch, Fluentbit and Kibana (EFK stack) are used for log collection, storage and analysis.
 
-<img src="docs/images/recommendation_system_diagram.png" alt="drawing" width="70%"/>
+<img src="docs/images/recommendation_system_diagram.png" alt="drawing" width="80%"/>
 
 ## Technologies and Tools
 1. Java 25 and Spring Boot 4 for Microservices
