@@ -42,6 +42,8 @@ spec:
           env:
             - name: KAFKA_BOOTSTRAP_SERVERS
               value: kafka-broker:9092
+            - name: SPRING_PROFILES_ACTIVE
+              value: "k8s"
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
