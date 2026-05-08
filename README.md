@@ -147,10 +147,10 @@ Collects logs from containers and sends them to Elasticsearch
 Note: On Linux use minikube ip address returned from `minikube ip` command instead of `127.0.0.1`
 
 After that the System components are available in a browser by:
-- https://kafka-ui.recommendation-system.dev/ (Kafka UI)
-- https://grafana.recommendation-system.dev/ (Grafana)
-- https://kibana.recommendation-system.dev/ (Kibana)
-- https://recommendation-system.dev/ (Main Service)
+- http://kafka-ui.recommendation-system.dev/ (Kafka UI)
+- http://grafana.recommendation-system.dev/ (Grafana)
+- http://kibana.recommendation-system.dev/ (Kibana)
+- http://recommendation-system.dev/ (Main Service)
 
 ## Running the System using the Docker Compose
 
