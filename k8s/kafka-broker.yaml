@@ -34,6 +34,8 @@ spec:
     metadata:
       labels:
         app: kafka-broker
+      annotations:
+        fluentbit.io/exclude: "true"
     spec:
       containers:
         - image: apache/kafka:4.1.0
