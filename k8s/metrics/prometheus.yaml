@@ -4,6 +4,7 @@ metadata:
   labels:
     app: prometheus
   name: prometheus
+  namespace: metrics
 spec:
   ports:
     - port: 9090
@@ -21,6 +22,7 @@ metadata:
   labels:
     app: prometheus
   name: prometheus
+  namespace: metrics
 spec:
   replicas: 1
   selector:
@@ -62,6 +64,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: prometheus-config
+  namespace: metrics
 data:
   prometheus.yaml: |
     global:
@@ -91,7 +94,8 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: prometheus-sa
-  namespace: default
+  namespace: metrics
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -101,7 +105,9 @@ rules:
   - apiGroups: [""]
     resources: ["pods", "services", "endpoints", "nodes"]
     verbs: ["get", "list", "watch"]
+
 ---
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
