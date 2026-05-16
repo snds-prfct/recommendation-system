@@ -3,6 +3,9 @@ kind: Service
 metadata:
   name: elasticsearch
   namespace: logging
+  labels:
+    group: logging
+    system: "true"
 spec:
   selector:
     app: elasticsearch
@@ -17,6 +20,9 @@ kind: StatefulSet
 metadata:
   name: elasticsearch
   namespace: logging
+  labels:
+    group: logging
+    system: "true"
 spec:
   serviceName: elasticsearch
   replicas: 1

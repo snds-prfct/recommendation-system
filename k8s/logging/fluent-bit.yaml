@@ -3,6 +3,9 @@ kind: ServiceAccount
 metadata:
   name: fluent-bit
   namespace: logging
+  labels:
+    group: logging
+    system: "true"
 
 ---
 
@@ -10,6 +13,9 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: fluent-bit-read
+  labels:
+    group: logging
+    system: "true"
 rules:
   - apiGroups: [""]
     resources: ["pods", "namespaces"]
@@ -21,6 +27,9 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: fluent-bit-read
+  labels:
+    group: logging
+    system: "true"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -37,6 +46,9 @@ kind: ConfigMap
 metadata:
   name: fluent-bit-config
   namespace: logging
+  labels:
+    group: logging
+    system: "true"
 data:
   fluent-bit.conf: |
     [SERVICE]
@@ -86,6 +98,9 @@ kind: DaemonSet
 metadata:
   name: fluent-bit
   namespace: logging
+  labels:
+    group: logging
+    system: "true"
 spec:
   selector:
     matchLabels:

@@ -3,7 +3,10 @@ kind: Service
 metadata:
   labels:
     app: kafka-ui
+    group: kafka
+    system: "true"
   name: kafka-ui
+  namespace: kafka
 spec:
   ports:
     - port: 8080
@@ -20,7 +23,10 @@ kind: Deployment
 metadata:
   labels:
     app: kafka-ui
+    group: kafka
+    system: "true"
   name: kafka-ui
+  namespace: kafka
 spec:
   replicas: 1
   selector:
