@@ -3,6 +3,8 @@ kind: Service
 metadata:
   labels:
     app: notification-service
+    group: microservices
+    system: "true"
   name: notification-service
 spec:
   ports:
@@ -20,6 +22,8 @@ kind: Deployment
 metadata:
   labels:
     app: notification-service
+    group: microservices
+    system: "true"
   name: notification-service
 spec:
   replicas: 1
@@ -41,7 +45,7 @@ spec:
           name: notification-service
           env:
             - name: KAFKA_BOOTSTRAP_SERVERS
-              value: kafka-broker:9092
+              value: kafka-broker.kafka.svc.cluster.local:9092
             - name: SPRING_PROFILES_ACTIVE
               value: "k8s"
           readinessProbe:

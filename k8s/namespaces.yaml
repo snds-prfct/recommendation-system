@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: logging
+  labels:
+    system: "true"
 
 ---
 
@@ -9,3 +11,14 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: metrics
+  labels:
+    system: "true"
+
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kafka
+  labels:
+    system: "true"

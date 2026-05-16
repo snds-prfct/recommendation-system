@@ -3,6 +3,9 @@ kind: Service
 metadata:
   name: kibana
   namespace: logging
+  labels:
+    group: logging
+    system: "true"
 spec:
   ports:
     - port: 5601
@@ -19,6 +22,9 @@ kind: Deployment
 metadata:
   name: kibana
   namespace: logging
+  labels:
+    group: logging
+    system: "true"
 spec:
   replicas: 1
   selector:

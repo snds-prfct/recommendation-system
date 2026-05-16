@@ -2,6 +2,9 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: system-ingress
+  labels:
+    group: microservices
+    system: "true"
 spec:
   ingressClassName: nginx
   rules:
@@ -13,16 +16,5 @@ spec:
             backend:
               service:
                 name: main-service
-                port:
-                  number: 8080
-
-    - host: kafka-ui.recommendation-system.dev
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: kafka-ui
                 port:
                   number: 8080

@@ -3,6 +3,8 @@ kind: Service
 metadata:
   labels:
     app: prometheus
+    group: metrics
+    system: "true"
   name: prometheus
   namespace: metrics
 spec:
@@ -21,6 +23,8 @@ kind: Deployment
 metadata:
   labels:
     app: prometheus
+    group: metrics
+    system: "true"
   name: prometheus
   namespace: metrics
 spec:
@@ -65,6 +69,9 @@ kind: ConfigMap
 metadata:
   name: prometheus-config
   namespace: metrics
+  labels:
+    group: metrics
+    system: "true"
 data:
   prometheus.yaml: |
     global:
@@ -95,12 +102,18 @@ kind: ServiceAccount
 metadata:
   name: prometheus-sa
   namespace: metrics
+  labels:
+    group: metrics
+    system: "true"
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: prometheus-role
+  labels:
+    group: metrics
+    system: "true"
 rules:
   - apiGroups: [""]
     resources: ["pods", "services", "endpoints", "nodes"]
@@ -112,6 +125,9 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: prometheus-role-binding
+  labels:
+    group: metrics
+    system: "true"
 subjects:
   - kind: ServiceAccount
     name: prometheus-sa

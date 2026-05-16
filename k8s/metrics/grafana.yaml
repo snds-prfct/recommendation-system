@@ -3,6 +3,8 @@ kind: Service
 metadata:
   labels:
     app: grafana
+    group: metrics
+    system: "true"
   name: grafana
   namespace: metrics
 spec:
@@ -21,6 +23,8 @@ kind: Deployment
 metadata:
   labels:
     app: grafana
+    group: metrics
+    system: "true"
   name: grafana
   namespace: metrics
 spec:
@@ -62,6 +66,8 @@ metadata:
   namespace: metrics
   labels:
     grafana_datasource: "1"
+    group: metrics
+    system: "true"
 data:
   datasource.yaml: |
     apiVersion: 1

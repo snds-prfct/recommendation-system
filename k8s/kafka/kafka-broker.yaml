@@ -3,7 +3,10 @@ kind: Service
 metadata:
   labels:
     app: kafka-broker
+    group: kafka
+    system: "true"
   name: kafka-broker
+  namespace: kafka
 spec:
   ports:
     - name: broker
@@ -23,7 +26,10 @@ kind: Deployment
 metadata:
   labels:
     app: kafka-broker
+    group: kafka
+    system: "true"
   name: kafka-broker
+  namespace: kafka
 spec:
   replicas: 1
   selector:

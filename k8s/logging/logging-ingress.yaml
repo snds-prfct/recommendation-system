@@ -3,6 +3,9 @@ kind: Ingress
 metadata:
   name: logging-ingress
   namespace: logging
+  labels:
+    group: logging
+    system: "true"
 spec:
   ingressClassName: nginx
   rules:
