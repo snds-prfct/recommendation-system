@@ -26,13 +26,13 @@
     </springProfile>
 
     <springProfile name="dev">
-        <root level="DEBUG">
+        <root level="INFO">
             <appender-ref ref="CONSOLE"/>
         </root>
     </springProfile>
 
     <springProfile name="k8s">
-        <root level="DEBUG">
+        <root level="INFO">
             <appender-ref ref="JSON_CONSOLE"/>
         </root>
     </springProfile>
